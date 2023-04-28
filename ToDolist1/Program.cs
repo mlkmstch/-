@@ -17,7 +17,7 @@ namespace ToDolist1
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetCompatibleTextRenderingDefault(false); //хахахахахаххаха
             Application.Run(new Form1());
         }
     }
