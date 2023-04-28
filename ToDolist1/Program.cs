@@ -12,6 +12,7 @@ namespace ToDolist1
         /// Главная точка входа для приложения.
         /// </summary>
         /// ллл
+        /// 1
         [STAThread]
         static void Main()
         {
