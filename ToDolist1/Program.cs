@@ -11,14 +11,13 @@ namespace ToDolist1
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
-        /// ллл
-        /// 1
+        public static MainWindow MN;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainWindow());
         }
     }
 }
