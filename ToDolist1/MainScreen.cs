@@ -13,6 +13,7 @@ namespace ToDolist1
     public partial class MainScreen : UserControl
     {
         private static MainScreen _instance;
+
         public static MainScreen instance
         {
             get
