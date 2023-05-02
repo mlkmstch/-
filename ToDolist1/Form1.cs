@@ -51,6 +51,7 @@ namespace ToDolist1
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
+                    MainWindow.userID = (dr.GetInt32(0));
                     dr.Close();
                     Program.MN.Visible = true;
                     Program.MN.ShowInTaskbar = true;

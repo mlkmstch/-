@@ -33,7 +33,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Achievements = new System.Windows.Forms.Button();
             this.Completed = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,12 +44,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ToDoList = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Deadline = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -98,14 +103,6 @@
             this.Completed.Text = "Completed";
             this.Completed.UseVisualStyleBackColor = false;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(104, 255);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(664, 363);
-            this.panel3.TabIndex = 32;
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -151,6 +148,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "+";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
@@ -210,16 +208,52 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Title,
+            this.Deadline,
+            this.add,
+            this.delete});
+            this.dataGridView1.Location = new System.Drawing.Point(99, 282);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(698, 323);
+            this.dataGridView1.TabIndex = 37;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Title
+            // 
+            this.Title.HeaderText = "";
+            this.Title.Name = "Title";
+            this.Title.Width = 150;
+            // 
+            // Deadline
+            // 
+            this.Deadline.HeaderText = "";
+            this.Deadline.Name = "Deadline";
+            // 
+            // add
+            // 
+            this.add.HeaderText = "";
+            this.add.Name = "add";
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "";
+            this.delete.Name = "delete";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 633);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Achievements);
             this.Controls.Add(this.Completed);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
@@ -239,6 +273,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,7 +286,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button Achievements;
         private System.Windows.Forms.Button Completed;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
@@ -263,5 +297,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label ToDoList;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Deadline;
+        private System.Windows.Forms.DataGridViewButtonColumn add;
+        private System.Windows.Forms.DataGridViewButtonColumn delete;
     }
 }

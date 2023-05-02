@@ -25,6 +25,8 @@ namespace ToDolist1
         const uint DOMOVE = 0xF012;
         const uint DOSIZE = 0xF008;
 
+        public static int userID;
+
         public MainWindow()
         {
             Program.MN = this;
@@ -49,6 +51,16 @@ namespace ToDolist1
         {
             ReleaseCapture();
             PostMessage(this.Handle, WM_SYSCOMMAND, DOMOVE, 0);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
