@@ -109,5 +109,19 @@ namespace ToDolist1
             cmd.ExecuteNonQuery();
             con.Close();
         }
+        public void DeleteUserTask(int UserID, int TaskID)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("DeleteUserTask", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@TaskID", UserID));
+            cmd.Parameters.Add(new SqlParameter("@UserID", TaskID));
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }
