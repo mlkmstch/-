@@ -28,7 +28,6 @@ namespace ToDolist1
 
             textBox1.Text = task.Title;
             richTextBox1.Text = task.Description;
-            Console.WriteLine(task.Deadline);
             dateTimePicker1.Value = Convert.ToDateTime(task.Deadline);
         }
 
@@ -38,7 +37,7 @@ namespace ToDolist1
             
             task.TaskID = this.TaskID;
             task.Title = textBox1.Text;
-            task.Description = textBox1.Text;
+            task.Description = richTextBox1.Text;
             task.Deadline = dateTimePicker1.Value.ToString();
 
             task.EditUserTask(this.UserID, task);
@@ -48,7 +47,8 @@ namespace ToDolist1
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Task task = new Task();
+            task.DeleteUserTask(this.UserID, this.TaskID);
             this.Close();
         }
     }
