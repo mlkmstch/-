@@ -7,14 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-
+using System.Runtime.InteropServices; 
 namespace ToDolist1
 {
     public partial class MainWindow : Form
     {
         Note note = Note.instance;
-        Form1 SignWindow = new Form1();
         [DllImport("user32", CharSet = CharSet.Auto)]
         internal extern static bool PostMessage(IntPtr hWnd, uint Msg, uint WParam, uint LParam);
 
@@ -35,6 +33,7 @@ namespace ToDolist1
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            Form1 SignWindow = new Form1();
             SignWindow.Show();
             this.Controls.Add(note);
             note.Hide();
@@ -55,12 +54,37 @@ namespace ToDolist1
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            AddWindow addwindow = new AddWindow(userID);
+            addwindow.Show();
+        }
 
+        private void FillGridView()
+        {
+            Task task = new Task();
+            List<Task> tasks = task.getUserTasks(userID);
+
+            dataGridView1.DataSource = tasks;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MainWindow_Activated(object sender, EventArgs e)
+        {
+            FillGridView();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int taskID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            EditWindow editwindow = new EditWindow(taskID, userID);
+            editwindow.Show();
         }
     }
 }

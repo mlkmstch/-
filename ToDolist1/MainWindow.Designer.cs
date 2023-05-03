@@ -45,10 +45,6 @@
             this.ToDoList = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Deadline = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.add = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -178,6 +174,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.ToDoList);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -185,6 +182,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1072, 62);
             this.panel1.TabIndex = 25;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // ToDoList
@@ -200,7 +198,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(1007, 12);
+            this.button1.Location = new System.Drawing.Point(1005, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 30);
             this.button1.TabIndex = 0;
@@ -212,37 +210,12 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Title,
-            this.Deadline,
-            this.add,
-            this.delete});
-            this.dataGridView1.Location = new System.Drawing.Point(99, 282);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 282);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(698, 323);
+            this.dataGridView1.Size = new System.Drawing.Size(774, 323);
             this.dataGridView1.TabIndex = 37;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Title
-            // 
-            this.Title.HeaderText = "";
-            this.Title.Name = "Title";
-            this.Title.Width = 150;
-            // 
-            // Deadline
-            // 
-            this.Deadline.HeaderText = "";
-            this.Deadline.Name = "Deadline";
-            // 
-            // add
-            // 
-            this.add.HeaderText = "";
-            this.add.Name = "add";
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "";
-            this.delete.Name = "delete";
             // 
             // MainWindow
             // 
@@ -264,6 +237,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.Text = "Form2";
+            this.Activated += new System.EventHandler(this.MainWindow_Activated);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -298,9 +272,5 @@
         private System.Windows.Forms.Label ToDoList;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Deadline;
-        private System.Windows.Forms.DataGridViewButtonColumn add;
-        private System.Windows.Forms.DataGridViewButtonColumn delete;
     }
 }
