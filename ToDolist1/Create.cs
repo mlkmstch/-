@@ -28,11 +28,25 @@ namespace ToDolist1
         public Create()
         {
             InitializeComponent();
+            this.BackColor = Color.FromArgb(244, 251, 255);
+            Form1.SetRoundedShape(textBox1, 25);
+            Form1.SetRoundedShape(textBox2, 25);
+            Form1.SetRoundedShape(textBox3, 25);
+            Form1.SetRoundedShape(button2, 25);
+            textBox1.ForeColor = Color.FromArgb(195, 227, 255);
+            textBox2.ForeColor = Color.FromArgb(195, 227, 255);
+            textBox3.ForeColor = Color.FromArgb(195, 227, 255);
+
+            button2.BackColor = Color.White;
+            button2.ForeColor = Color.FromArgb(15, 128, 232);
+            label2.ForeColor = Color.FromArgb(15, 128, 232);
+            button2.FlatAppearance.BorderSize = 0;
+
         }
 
         private void Create_Load(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=DESKTOP-BIO9OQ1;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=DESKTOP-DRCHV91;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
             con = new SqlConnection(connectionString);
             con.Open();
         }
@@ -69,6 +83,33 @@ namespace ToDolist1
             {
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            //Form1.Show();
+            this.Hide();
+            //create.Location = new Point(0, 50);
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
