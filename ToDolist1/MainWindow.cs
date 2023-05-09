@@ -12,7 +12,6 @@ namespace ToDolist1
 {
     public partial class MainWindow : Form
     {
-        Note note = Note.instance;
         [DllImport("user32", CharSet = CharSet.Auto)]
         internal extern static bool PostMessage(IntPtr hWnd, uint Msg, uint WParam, uint LParam);
 
@@ -29,14 +28,14 @@ namespace ToDolist1
         {
             Program.MN = this;
             InitializeComponent();
+            this.BackColor = Color.FromArgb(244, 251, 255);
+            panel1.BackColor = Color.FromArgb(205, 237, 255);
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Form1 SignWindow = new Form1();
             SignWindow.Show();
-            this.Controls.Add(note);
-            note.Hide();
             this.Visible = false;
             this.ShowInTaskbar = false;
         }

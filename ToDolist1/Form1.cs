@@ -31,16 +31,42 @@ namespace ToDolist1
         public Form1()
         {
             InitializeComponent();
+            SetRoundedShape(textBox1, 25);
+            SetRoundedShape(textBox2, 25);
+            SetRoundedShape(button2, 25);
+            this.BackColor = Color.FromArgb(244, 251, 255);
+            panel1.BackColor = Color.FromArgb(205, 237, 255);
+            textBox1.ForeColor = Color.FromArgb(195, 227, 255);
+            textBox2.ForeColor = Color.FromArgb(195, 227, 255);
+            button2.BackColor = Color.White;
+            button2.ForeColor = Color.FromArgb(15, 128, 232);
+            label2.ForeColor = Color.FromArgb(15, 128, 232);
+            button2.FlatAppearance.BorderSize = 0;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=DESKTOP-BIO9OQ1;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=DESKTOP-DRCHV91;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
             con = new SqlConnection(connectionString);
             con.Open();
             this.Controls.Add(create);
             create.Hide();
             
+        }
+
+        public static void SetRoundedShape(Control control, int radius)
+        {
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddLine(radius, 0, control.Width - radius, 0);
+            path.AddArc(control.Width - radius, 0, radius, radius, 270, 90);
+            path.AddLine(control.Width, radius, control.Width, control.Height - radius);
+            path.AddArc(control.Width - radius, control.Height - radius, radius, radius, 0, 90);
+            path.AddLine(control.Width - radius, control.Height, radius, control.Height);
+            path.AddArc(0, control.Height - radius, radius, radius, 90, 90);
+            path.AddLine(0, control.Height - radius, 0, radius);
+            path.AddArc(0, 0, radius, radius, 180, 90);
+            control.Region = new Region(path);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,24 +86,23 @@ namespace ToDolist1
                 }
                 else
                 {
+                    label1.ForeColor = Color.Red;
+                    label1.Text = "Invalid login or password";
                     dr.Close();
-                    MessageBox.Show("No Account avilable with this username and password ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("No Account avilable with this username and password ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                
             }
             else
             {
-                MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                label1.ForeColor = Color.Red;
+                label1.Text = "Invalid login or password";
+                //MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            create.Show();
-            create.BringToFront();
-            create.Location = new Point(0, 50);
-        }
+        
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -90,6 +115,13 @@ namespace ToDolist1
             this.Close();
             Program.MN.Close();
             con.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            create.Show();
+            create.BringToFront();
+            create.Location = new Point(0, 50);
         }
     }
 }

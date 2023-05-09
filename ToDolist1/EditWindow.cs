@@ -17,6 +17,10 @@ namespace ToDolist1
         public EditWindow(int TaskID, int UserID)
         {
             InitializeComponent();
+            this.BackColor = Color.FromArgb(244, 251, 255);
+            panel1.BackColor = Color.FromArgb(205, 237, 255);
+
+
             this.TaskID = TaskID;
             this.UserID = UserID;
         }

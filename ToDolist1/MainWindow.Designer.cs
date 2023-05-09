@@ -58,9 +58,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.dateTimePicker1);
-            this.panel4.Location = new System.Drawing.Point(803, 264);
+            this.panel4.Location = new System.Drawing.Point(840, 264);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(197, 167);
+            this.panel4.Size = new System.Drawing.Size(196, 167);
             this.panel4.TabIndex = 36;
             // 
             // dateTimePicker1
