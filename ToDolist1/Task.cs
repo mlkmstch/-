@@ -116,8 +116,8 @@ namespace ToDolist1
             SqlCommand cmd = new SqlCommand("DeleteUserTask", con);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-            cmd.Parameters.Add(new SqlParameter("@TaskID", UserID));
-            cmd.Parameters.Add(new SqlParameter("@UserID", TaskID));
+            cmd.Parameters.Add(new SqlParameter("@TaskID", TaskID));
+            cmd.Parameters.Add(new SqlParameter("@UserID", UserID));
 
             con.Open();
             cmd.ExecuteNonQuery();
