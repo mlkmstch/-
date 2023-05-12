@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
+using System.Drawing.Drawing2D;
 namespace ToDolist1
 {
     public partial class MainWindow : Form
@@ -22,16 +22,20 @@ namespace ToDolist1
         const uint WM_SYSCOMMAND = 0x0112;
         const uint DOMOVE = 0xF012;
         const uint DOSIZE = 0xF008;
-
+        
         public static int userID;
-
         public MainWindow()
         {
             Program.MN = this;
             InitializeComponent();
             this.BackColor = Color.FromArgb(244, 251, 255);
             panel1.BackColor = Color.FromArgb(205, 237, 255);
+            panel3.BackColor = Color.FromArgb(244, 251, 255);
+            panel6.BackColor = Color.FromArgb(154, 206, 254);
+            panel7.BackColor = Color.FromArgb(154, 206, 254);
+            panel9.BackColor = Color.FromArgb(154, 206, 254);
         }
+        
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -74,7 +78,80 @@ namespace ToDolist1
         {
 
         }
+        private void panels1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
 
+            
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                int cornerRadius = 10; 
+                
+                path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); 
+                path.AddArc(panel4.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+                path.AddArc(panel4.Width, panel4.Height, cornerRadius, cornerRadius, 0, 90);
+                path.AddArc(0, panel4.Height, cornerRadius, cornerRadius, 90, 90);
+                path.CloseFigure();
+
+                
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                Color fillColor = Color.FromArgb(154, 206, 254);
+                using (SolidBrush brush = new SolidBrush(fillColor))
+                {
+                   
+                    g.FillPath(brush, path);
+                }
+            }
+        }
+        private void panels2_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                int cornerRadius = 10; 
+                path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); 
+                path.AddArc(panel7.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90); 
+                path.AddArc(panel7.Width - cornerRadius, panel7.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90); 
+                path.AddArc(0, panel7.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90); 
+                path.CloseFigure();
+
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                Color fillColor = Color.FromArgb(244, 251, 255);
+                using (SolidBrush brush = new SolidBrush(fillColor))
+                {
+                    g.FillPath(brush, path);
+                }
+            }
+        }
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+           
+            Graphics g = e.Graphics;
+
+            
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                int cornerRadius = 20; 
+
+                
+                path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); 
+                path.AddArc(panel3.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90); 
+                path.AddArc(panel3.Width - cornerRadius, panel3.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+                path.AddArc(0, panel3.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90); 
+                path.CloseFigure();
+
+                
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                Color fillColor = Color.FromArgb(154, 206, 254);
+                using (SolidBrush brush = new SolidBrush(fillColor))
+                {
+                    
+                    g.FillPath(brush, path);
+                }
+            }
+        }
         private void MainWindow_Activated(object sender, EventArgs e)
         {
             FillGridView();
@@ -85,6 +162,16 @@ namespace ToDolist1
             int taskID = (int)dataGridView1.CurrentRow.Cells[0].Value;
             EditWindow editwindow = new EditWindow(taskID, userID);
             editwindow.Show();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void monthCalendar1_DateChanged_1(object sender, DateRangeEventArgs e)
+        {
+
         }
     }
 }
