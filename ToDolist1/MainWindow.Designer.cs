@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Achievements = new System.Windows.Forms.Button();
             this.Completed = new System.Windows.Forms.Button();
@@ -45,30 +43,24 @@
             this.ToDoList = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel4.SuspendLayout();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.dateTimePicker1);
-            this.panel4.Location = new System.Drawing.Point(840, 264);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(196, 167);
-            this.panel4.TabIndex = 36;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(18, 18);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(137, 20);
-            this.dateTimePicker1.TabIndex = 11;
             // 
             // pictureBox2
             // 
@@ -82,7 +74,7 @@
             // Achievements
             // 
             this.Achievements.BackColor = System.Drawing.Color.White;
-            this.Achievements.Location = new System.Drawing.Point(855, 221);
+            this.Achievements.Location = new System.Drawing.Point(852, 188);
             this.Achievements.Name = "Achievements";
             this.Achievements.Size = new System.Drawing.Size(117, 23);
             this.Achievements.TabIndex = 34;
@@ -92,7 +84,7 @@
             // Completed
             // 
             this.Completed.BackColor = System.Drawing.Color.White;
-            this.Completed.Location = new System.Drawing.Point(855, 178);
+            this.Completed.Location = new System.Drawing.Point(852, 145);
             this.Completed.Name = "Completed";
             this.Completed.Size = new System.Drawing.Size(117, 23);
             this.Completed.TabIndex = 33;
@@ -208,22 +200,107 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Location = new System.Drawing.Point(23, 282);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(774, 323);
             this.dataGridView1.TabIndex = 37;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(821, 250);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(179, 199);
+            this.panel3.TabIndex = 39;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(830, 277);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.ShowTodayCircle = false;
+            this.monthCalendar1.TabIndex = 40;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged_1);
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel4.Controls.Add(this.panel7);
+            this.panel4.Location = new System.Drawing.Point(864, 225);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(20, 195);
+            this.panel4.TabIndex = 40;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panels1_Paint);
+            // 
+            // panel7
+            // 
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel7.Location = new System.Drawing.Point(5, 5);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(11, 34);
+            this.panel7.TabIndex = 42;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panels2_Paint);
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Location = new System.Drawing.Point(903, 225);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(20, 195);
+            this.panel5.TabIndex = 43;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panels1_Paint);
+            // 
+            // panel6
+            // 
+            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel6.Location = new System.Drawing.Point(5, 5);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(11, 34);
+            this.panel6.TabIndex = 43;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panels2_Paint);
+            // 
+            // panel8
+            // 
+            this.panel8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Location = new System.Drawing.Point(940, 225);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(20, 195);
+            this.panel8.TabIndex = 43;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panels1_Paint);
+            // 
+            // panel9
+            // 
+            this.panel9.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel9.Location = new System.Drawing.Point(5, 5);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(11, 34);
+            this.panel9.TabIndex = 43;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panels2_Paint);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 633);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Achievements);
             this.Controls.Add(this.Completed);
@@ -234,12 +311,12 @@
             this.Controls.Add(this.Usermane);
             this.Controls.Add(this.avatar);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.Text = "Form2";
             this.Activated += new System.EventHandler(this.MainWindow_Activated);
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -248,15 +325,15 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button Achievements;
         private System.Windows.Forms.Button Completed;
@@ -272,5 +349,13 @@
         private System.Windows.Forms.Label ToDoList;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel9;
     }
 }
