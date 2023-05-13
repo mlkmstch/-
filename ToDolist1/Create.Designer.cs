@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(134, 243);
+            this.label1.Location = new System.Drawing.Point(117, 248);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 12;
@@ -50,10 +50,10 @@
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(105, 173);
+            this.textBox3.Location = new System.Drawing.Point(85, 184);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(169, 40);
+            this.textBox3.Size = new System.Drawing.Size(214, 42);
             this.textBox3.TabIndex = 10;
             this.textBox3.Text = "Password";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -63,10 +63,10 @@
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(105, 111);
+            this.textBox2.Location = new System.Drawing.Point(85, 106);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(169, 42);
+            this.textBox2.Size = new System.Drawing.Size(214, 43);
             this.textBox2.TabIndex = 9;
             this.textBox2.Text = "Password";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -76,10 +76,10 @@
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(105, 53);
+            this.textBox1.Location = new System.Drawing.Point(78, 25);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(169, 37);
+            this.textBox1.Size = new System.Drawing.Size(221, 41);
             this.textBox1.TabIndex = 8;
             this.textBox1.Text = "Login";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -89,9 +89,10 @@
             // 
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(137, 317);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(120, 303);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 29);
+            this.button2.Size = new System.Drawing.Size(137, 45);
             this.button2.TabIndex = 7;
             this.button2.Text = "Submit";
             this.button2.UseVisualStyleBackColor = false;
@@ -101,7 +102,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(91, 381);
+            this.label2.Location = new System.Drawing.Point(102, 372);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(183, 20);
             this.label2.TabIndex = 13;

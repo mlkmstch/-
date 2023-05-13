@@ -109,18 +109,18 @@ namespace ToDolist1
             PostMessage(this.Handle, WM_SYSCOMMAND, DOMOVE, 0);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Program.MN.Close();
-            con.Close();
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
             create.Show();
             create.BringToFront();
             create.Location = new Point(0, 50);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Program.MN.Close();
+            con.Close();
         }
     }
 }
