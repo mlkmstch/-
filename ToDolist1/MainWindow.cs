@@ -31,9 +31,7 @@ namespace ToDolist1
             this.BackColor = Color.FromArgb(244, 251, 255);
             panel1.BackColor = Color.FromArgb(205, 237, 255);
             panel3.BackColor = Color.FromArgb(244, 251, 255);
-            panel6.BackColor = Color.FromArgb(154, 206, 254);
-            panel7.BackColor = Color.FromArgb(154, 206, 254);
-            panel9.BackColor = Color.FromArgb(154, 206, 254);
+            
         }
         
 
@@ -45,11 +43,6 @@ namespace ToDolist1
             this.ShowInTaskbar = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -58,12 +51,6 @@ namespace ToDolist1
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AddWindow addwindow = new AddWindow(userID);
-            addwindow.Show();
         }
 
         private void FillGridView()
@@ -87,11 +74,7 @@ namespace ToDolist1
             {
                 int cornerRadius = 10; 
                 
-                path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); 
-                path.AddArc(panel4.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
-                path.AddArc(panel4.Width, panel4.Height, cornerRadius, cornerRadius, 0, 90);
-                path.AddArc(0, panel4.Height, cornerRadius, cornerRadius, 90, 90);
-                path.CloseFigure();
+                
 
                 
                 g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -111,11 +94,7 @@ namespace ToDolist1
             using (GraphicsPath path = new GraphicsPath())
             {
                 int cornerRadius = 10; 
-                path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); 
-                path.AddArc(panel7.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90); 
-                path.AddArc(panel7.Width - cornerRadius, panel7.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90); 
-                path.AddArc(0, panel7.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90); 
-                path.CloseFigure();
+               
 
                 g.SmoothingMode = SmoothingMode.AntiAlias;
                 Color fillColor = Color.FromArgb(244, 251, 255);
@@ -173,5 +152,18 @@ namespace ToDolist1
         {
 
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            AddWindow addwindow = new AddWindow(userID);
+            addwindow.Show();
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+       
     }
 }
