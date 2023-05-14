@@ -109,6 +109,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(254, 45);
             this.panel2.TabIndex = 29;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
             // addButton
             // 
@@ -140,7 +141,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(187, 19);
             this.textBox1.TabIndex = 28;
-            this.textBox1.Text = "Search";
+            this.textBox1.Text = "search";
             // 
             // Usermane
             // 
@@ -162,7 +163,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1112, 62);
             this.panel1.TabIndex = 25;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // closeButton
@@ -210,7 +211,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(206, 204);
             this.panel3.TabIndex = 39;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
             // monthCalendar1
             // 
