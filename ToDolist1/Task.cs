@@ -15,7 +15,7 @@ namespace ToDolist1
         public string Deadline { get; set; }
         public bool IsCompleted { get; set; }
 
-        private string ConnectionString = "Data Source=DESKTOP-DRCHV91;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+        private string ConnectionString = "Data Source=DESKTOP-FA33UUU;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
         public List<Task> getUserTasks(int UserID)
         {
             List<Task> taskList = new List<Task>();
