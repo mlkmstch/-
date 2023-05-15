@@ -28,42 +28,10 @@ namespace ToDolist1
         {
             Program.MN = this;
             InitializeComponent();
-            SetRoundedShape(panel3,25);
-            SetRoundedShape(panel4, 10);
-            SetRoundedShape(panel5, 10);
-            SetRoundedShape(panel6, 10);
-            SetRoundedShape(panel7, 10);
-            SetRoundedShape(panel8, 10);
-            SetRoundedShape(panel9, 10);
-            SetRoundedShape(comboBox1, 10);
-            SetRoundedShape(panel2, 10);
-            SetRoundedShape(textBox1, 10);
-            SetRoundedShape(button1, 25);
-            SetRoundedShape(button2, 15);
-            SetRoundedShape(Completed, 25);
-            SetRoundedShape(Achievements, 25);
             this.BackColor = Color.FromArgb(244, 251, 255);
             panel1.BackColor = Color.FromArgb(205, 237, 255);
-            panel3.BackColor = Color.FromArgb(154, 206, 254);
-            panel4.BackColor = Color.FromArgb(154, 206, 254);
-            panel5.BackColor = Color.FromArgb(154, 206, 254);
-            panel6.BackColor = Color.FromArgb(244, 251, 255);
-            panel7.BackColor = Color.FromArgb(244, 251, 255);
-            panel8.BackColor = Color.FromArgb(154, 206, 254);
-            panel9.BackColor = Color.FromArgb(244, 251, 255);
-        }
-        public static void SetRoundedShape(Control control, int radius)
-        {
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddLine(radius, 0, control.Width - radius, 0);
-            path.AddArc(control.Width - radius, 0, radius, radius, 270, 90);
-            path.AddLine(control.Width, radius, control.Width, control.Height - radius);
-            path.AddArc(control.Width - radius, control.Height - radius, radius, radius, 0, 90);
-            path.AddLine(control.Width - radius, control.Height, radius, control.Height);
-            path.AddArc(0, control.Height - radius, radius, radius, 90, 90);
-            path.AddLine(0, control.Height - radius, 0, radius);
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            control.Region = new Region(path);
+            panel3.BackColor = Color.FromArgb(244, 251, 255);
+            
         }
         
 
@@ -73,9 +41,6 @@ namespace ToDolist1
             SignWindow.Show();
             this.Visible = false;
             this.ShowInTaskbar = false;
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            Completed.FlatStyle = FlatStyle.Flat;
-            Achievements.FlatStyle = FlatStyle.Flat;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -95,10 +60,69 @@ namespace ToDolist1
 
             dataGridView1.DataSource = tasks;
         }
-        private void panel_Paint(object sender, PaintEventArgs e)
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+        private void panels1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                int cornerRadius = 10; 
+                
+                
+
+                
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                Color fillColor = Color.FromArgb(154, 206, 254);
+                using (SolidBrush brush = new SolidBrush(fillColor))
+                {
+                   
+                    g.FillPath(brush, path);
+                }
+            }
+        }
+        private void panels2_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                int cornerRadius = 10; 
+               
+
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                Color fillColor = Color.FromArgb(244, 251, 255);
+                using (SolidBrush brush = new SolidBrush(fillColor))
+                {
+                    g.FillPath(brush, path);
+                }
+            }
+        }
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+           
+            Graphics g = e.Graphics;
+
+            
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                int cornerRadius = 20; 
+
+                
+                path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); 
+                path.AddArc(panel3.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90); 
+                path.AddArc(panel3.Width - cornerRadius, panel3.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+                path.AddArc(0, panel3.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90); 
+                path.CloseFigure();
+
+                
+                g.SmoothingMode = SmoothingMode.AntiAlias;
                 Color fillColor = Color.FromArgb(154, 206, 254);
                 using (SolidBrush brush = new SolidBrush(fillColor))
                 {
@@ -119,28 +143,18 @@ namespace ToDolist1
             editwindow.Show();
         }
 
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void monthCalendar1_DateChanged_1(object sender, DateRangeEventArgs e)
+        {
+
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddWindow addwindow = new AddWindow(userID);
-            addwindow.Show();
-        }
-
-        }
-
-        private void addButton_Click(object sender, EventArgs e)
-        {
-
-        private void Usermane_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void avatar_Click(object sender, EventArgs e)
-        {
-
-        }
             AddWindow addwindow = new AddWindow(userID);
             addwindow.Show();
         }
@@ -149,5 +163,7 @@ namespace ToDolist1
         {
             this.Close();
         }
+
+       
     }
 }
