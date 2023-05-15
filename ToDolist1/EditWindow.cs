@@ -17,9 +17,8 @@ namespace ToDolist1
         public EditWindow(int TaskID, int UserID)
         {
             InitializeComponent();
-            this.BackColor = Color.FromArgb(244, 251, 255);
-            panel1.BackColor = Color.FromArgb(205, 237, 255);
-
+            this.BackColor = Color.FromArgb(225, 244, 255);
+            panel1.BackColor = Color.FromArgb(176, 227, 255);
 
             this.TaskID = TaskID;
             this.UserID = UserID;
@@ -54,6 +53,11 @@ namespace ToDolist1
             Task task = new Task();
             task.DeleteUserTask(this.UserID, this.TaskID);
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

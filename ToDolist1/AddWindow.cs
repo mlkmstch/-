@@ -17,6 +17,10 @@ namespace ToDolist1
         {
             this.UserID = UserID;
             InitializeComponent();
+
+            this.BackColor = Color.FromArgb(225, 244, 255);
+            panel1.BackColor = Color.FromArgb(176, 227, 255);
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -40,6 +44,11 @@ namespace ToDolist1
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddWindow_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
