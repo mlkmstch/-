@@ -31,14 +31,20 @@ namespace ToDolist1
         public Form1()
         {
             InitializeComponent();
-            SetRoundedShape(textBox1, 25);
-            SetRoundedShape(textBox2, 25);
+            SetRoundedShape(panel5, 25);
+            SetRoundedShape(panel4, 25);
             SetRoundedShape(button2, 25);
-            this.BackColor = Color.FromArgb(244, 251, 255);
-            panel1.BackColor = Color.FromArgb(205, 237, 255);
-            textBox1.ForeColor = Color.FromArgb(195, 227, 255);
-            textBox2.ForeColor = Color.FromArgb(195, 227, 255);
-            button2.BackColor = Color.White;
+            SetRoundedShape(panel2, 25);
+            SetRoundedShape(panel3, 25);
+            //SetRoundedShape(panel6, 25);
+            this.BackColor = Color.FromArgb(225, 244, 255);
+            panel5.BackColor = Color.FromArgb(210, 227, 236);
+            panel2.BackColor = Color.FromArgb(210, 227, 236);
+            //panel6.BackColor = Color.FromArgb(210, 227, 236);
+            panel1.BackColor = Color.FromArgb(176, 227, 255);
+            textBox1.ForeColor = Color.FromArgb(115, 188, 255);
+            textBox2.ForeColor = Color.FromArgb(115, 188, 255);
+            button2.BackColor = Color.FromArgb(175, 217, 255);
             button2.ForeColor = Color.FromArgb(15, 128, 232);
             label2.ForeColor = Color.FromArgb(15, 128, 232);
             button2.FlatAppearance.BorderSize = 0;
@@ -121,6 +127,22 @@ namespace ToDolist1
             this.Close();
             Program.MN.Close();
             con.Close();
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Login")
+            {
+                textBox1.Text = "";
+            }
+        }
+
+        private void textBox2_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "Password")
+            {
+                textBox2.Text = "";
+            }
         }
     }
 }
