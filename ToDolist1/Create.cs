@@ -60,22 +60,25 @@ namespace ToDolist1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != string.Empty || textBox2.Text != string.Empty || textBox1.Text != string.Empty)
+            if (textBox5.Text != string.Empty || textBox2.Text != string.Empty || textBox1.Text != string.Empty)
             {
                 if (textBox2.Text == textBox1.Text)
                 {
-                    cmd = new SqlCommand("select * from Users where Name='" + textBox1.Text + "' and Password='" + textBox2.Text + "'", con);
+                    cmd = new SqlCommand("select * from Users where Name='" + textBox5.Text + "' and Password='" + textBox1.Text + "'", con);
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
                         dr.Close();
-                        MessageBox.Show("Username Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        label1.ForeColor = Color.Red;
+                        label1.Location = new Point(33, 290);
+                        label1.Text = "Username Already exist please try another";
+                        //MessageBox.Show("Username Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
                         dr.Close();
                         cmd = new SqlCommand("insert into Users values(@username,@password)", con);
-                        cmd.Parameters.AddWithValue("username", textBox1.Text);
+                        cmd.Parameters.AddWithValue("username", textBox5.Text);
                         cmd.Parameters.AddWithValue("password", textBox2.Text);
                         cmd.ExecuteNonQuery();
                         this.Hide();
@@ -83,12 +86,18 @@ namespace ToDolist1
                 }
                 else
                 {
-                    MessageBox.Show("Please enter both password same ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    label1.ForeColor = Color.Red;
+                    label1.Location = new Point(65, 290);
+                    label1.Text = "Please enter both password same";
+                    //MessageBox.Show("Please enter both password same ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                label1.ForeColor = Color.Red;
+                label1.Location = new Point(83, 290);
+                label1.Text = "Please enter value in all field";
+                //MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
