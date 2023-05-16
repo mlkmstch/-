@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.Achievements = new System.Windows.Forms.Button();
-            this.Completed = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -50,6 +48,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -59,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.panel5.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // Achievements
@@ -66,32 +70,12 @@
             this.Achievements.BackColor = System.Drawing.Color.White;
             this.Achievements.FlatAppearance.BorderSize = 0;
             this.Achievements.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Achievements.Location = new System.Drawing.Point(928, 162);
+            this.Achievements.Location = new System.Drawing.Point(715, 138);
             this.Achievements.Name = "Achievements";
-            this.Achievements.Size = new System.Drawing.Size(143, 38);
+            this.Achievements.Size = new System.Drawing.Size(139, 38);
             this.Achievements.TabIndex = 34;
             this.Achievements.Text = "Achievements";
             this.Achievements.UseVisualStyleBackColor = false;
-            // 
-            // Completed
-            // 
-            this.Completed.BackColor = System.Drawing.Color.White;
-            this.Completed.FlatAppearance.BorderSize = 0;
-            this.Completed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Completed.Location = new System.Drawing.Point(928, 101);
-            this.Completed.Name = "Completed";
-            this.Completed.Size = new System.Drawing.Size(143, 38);
-            this.Completed.TabIndex = 33;
-            this.Completed.Text = "Completed";
-            this.Completed.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(104, 255);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(664, 363);
-            this.panel3.TabIndex = 32;
             // 
             // comboBox1
             // 
@@ -100,9 +84,9 @@
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.ItemHeight = 20;
-            this.comboBox1.Location = new System.Drawing.Point(717, 206);
+            this.comboBox1.Location = new System.Drawing.Point(3, 8);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(137, 28);
+            this.comboBox1.Size = new System.Drawing.Size(133, 28);
             this.comboBox1.TabIndex = 31;
             this.comboBox1.Text = "Sort by";
             // 
@@ -138,7 +122,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(13, 11);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 20);
             this.label1.TabIndex = 5;
@@ -160,7 +144,7 @@
             // 
             this.Username.AutoSize = true;
             this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Username.Location = new System.Drawing.Point(82, 101);
+            this.Username.Location = new System.Drawing.Point(77, 91);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(105, 24);
             this.Username.TabIndex = 27;
@@ -169,6 +153,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.ToDoList);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -243,7 +228,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(907, 316);
+            this.monthCalendar1.Location = new System.Drawing.Point(916, 316);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.ShowTodayCircle = false;
             this.monthCalendar1.TabIndex = 40;
@@ -253,10 +238,10 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackgroundImage = global::ToDolist1.Properties.Resources._8664801_calendar_icon;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(872, 254);
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(881, 68);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(228, 239);
+            this.pictureBox1.Size = new System.Drawing.Size(219, 191);
             this.pictureBox1.TabIndex = 45;
             this.pictureBox1.TabStop = false;
             // 
@@ -274,9 +259,9 @@
             // avatar
             // 
             this.avatar.Image = global::ToDolist1.Properties.Resources._9mSx5iix5UE;
-            this.avatar.Location = new System.Drawing.Point(26, 77);
+            this.avatar.Location = new System.Drawing.Point(12, 68);
             this.avatar.Name = "avatar";
-            this.avatar.Size = new System.Drawing.Size(50, 48);
+            this.avatar.Size = new System.Drawing.Size(59, 55);
             this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.avatar.TabIndex = 26;
             this.avatar.TabStop = false;
@@ -304,25 +289,74 @@
             this.panel5.Size = new System.Drawing.Size(785, 459);
             this.panel5.TabIndex = 48;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.59477F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.40523F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 425F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(81, 385);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(773, 93);
+            this.tableLayoutPanel1.TabIndex = 38;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Location = new System.Drawing.Point(81, 120);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(284, 3);
+            this.panel6.TabIndex = 49;
+            // 
+            // panel7
+            // 
+            this.panel7.Location = new System.Drawing.Point(715, 224);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(139, 34);
+            this.panel7.TabIndex = 50;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.Controls.Add(this.comboBox1);
+            this.panel8.Location = new System.Drawing.Point(715, 206);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(139, 41);
+            this.panel8.TabIndex = 51;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.Location = new System.Drawing.Point(0, 59);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1112, 3);
+            this.panel9.TabIndex = 50;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 744);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.avatar);
+            this.Controls.Add(this.Username);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Achievements);
-            this.Controls.Add(this.Completed);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.Username);
-            this.Controls.Add(this.avatar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
@@ -342,6 +376,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,7 +385,6 @@
         #endregion
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button Achievements;
-        private System.Windows.Forms.Button Completed;
         private System.Windows.Forms.PictureBox searchButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
@@ -369,5 +403,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
     }
 }

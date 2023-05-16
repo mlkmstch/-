@@ -35,6 +35,7 @@ namespace ToDolist1
             this.BackColor = Color.FromArgb(225, 244, 255);
             panel1.BackColor = Color.FromArgb(176, 227, 255);
             button3.BackColor = Color.FromArgb(175, 217, 255);
+            panel3.BackColor = Color.FromArgb(95, 160, 221);
 
         }
 
