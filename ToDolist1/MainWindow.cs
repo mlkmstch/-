@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Azure.Identity;
+using Microsoft.Data.SqlClient;
 
 namespace ToDolist1
 {
@@ -24,7 +26,11 @@ namespace ToDolist1
         const uint WM_SYSCOMMAND = 0x0112;
         const uint DOMOVE = 0xF012;
         const uint DOSIZE = 0xF008;
-        
+
+        SqlCommand cmd;
+        SqlConnection con;
+        SqlDataReader dr;
+
         public static int userID;
         public MainWindow()
         {
@@ -48,6 +54,8 @@ namespace ToDolist1
 
             comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
             comboBox1.Height = 40;
+
+            
         }
         
 
@@ -80,45 +88,6 @@ namespace ToDolist1
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-        private void panels1_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-
-            
-            using (GraphicsPath path = new GraphicsPath())
-            {
-                int cornerRadius = 10; 
-                
-                
-
-                
-                g.SmoothingMode = SmoothingMode.AntiAlias;
-                Color fillColor = Color.FromArgb(154, 206, 254);
-                using (SolidBrush brush = new SolidBrush(fillColor))
-                {
-                   
-                    g.FillPath(brush, path);
-                }
-            }
-        }
-        private void panels2_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-
-            
-            using (GraphicsPath path = new GraphicsPath())
-            {
-                int cornerRadius = 10; 
-               
-
-                g.SmoothingMode = SmoothingMode.AntiAlias;
-                Color fillColor = Color.FromArgb(244, 251, 255);
-                using (SolidBrush brush = new SolidBrush(fillColor))
-                {
-                    g.FillPath(brush, path);
-                }
-            }
         }
         
         private void MainWindow_Activated(object sender, EventArgs e)
@@ -166,6 +135,37 @@ namespace ToDolist1
             if (textBox1.Text == "Search")
             {
                 textBox1.Text = "";
+            }
+        }
+
+        private void Username_Paint(object sender, PaintEventArgs e)
+        {
+            string connectionString = "Data Source=DESKTOP-FA33UUU;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            con = new SqlConnection(connectionString);
+            con.Open();
+            cmd = new SqlCommand("select Name from Users where UserID='" + userID.ToString() + "'", con);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                Username.Text = dr["Name"].ToString();
+            }
+            dr.Close();
+        }
+
+        private void avatar_MouseClick(object sender, MouseEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            // Установите фильтр для диалогового окна открытия файла, чтобы пользователь мог выбрать только изображения
+            openFileDialog.Filter = "Изображения (*.jpg;*.jpeg;*.png;*.bmp;*.jfif)|*.jpg;*.jpeg;*.png;*.bmp;*.jfif";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Получите путь к выбранному файлу
+                string imagePath = openFileDialog.FileName;
+
+                // Загрузите изображение в PictureBox
+                avatar.Image = Image.FromFile(imagePath);
             }
         }
     }

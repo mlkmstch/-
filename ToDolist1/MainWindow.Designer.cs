@@ -35,7 +35,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Usermane = new System.Windows.Forms.Label();
+            this.Username = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.ToDoList = new System.Windows.Forms.Label();
@@ -146,15 +146,16 @@
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // Usermane
+            // Username
             // 
-            this.Usermane.AutoSize = true;
-            this.Usermane.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Usermane.Location = new System.Drawing.Point(82, 101);
-            this.Usermane.Name = "Usermane";
-            this.Usermane.Size = new System.Drawing.Size(105, 24);
-            this.Usermane.TabIndex = 27;
-            this.Usermane.Text = "Username";
+            this.Username.AutoSize = true;
+            this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Username.Location = new System.Drawing.Point(82, 101);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(105, 24);
+            this.Username.TabIndex = 27;
+            this.Username.Text = "Username";
+            this.Username.Paint += new System.Windows.Forms.PaintEventHandler(this.Username_Paint);
             // 
             // panel1
             // 
@@ -270,6 +271,7 @@
             this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.avatar.TabIndex = 26;
             this.avatar.TabStop = false;
+            this.avatar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.avatar_MouseClick);
             // 
             // panel3
             // 
@@ -309,7 +311,7 @@
             this.Controls.Add(this.Achievements);
             this.Controls.Add(this.Completed);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.Usermane);
+            this.Controls.Add(this.Username);
             this.Controls.Add(this.avatar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -343,7 +345,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label Usermane;
+        private System.Windows.Forms.Label Username;
         private System.Windows.Forms.PictureBox avatar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label ToDoList;
