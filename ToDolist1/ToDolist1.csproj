@@ -284,9 +284,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1864217_circle_cross_delete_remove_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\9056813_add_r_icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -297,6 +294,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\9mSx5iix5UE.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9057363_trash_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8664801_calendar_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1864217_circle_cross_delete_remove_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />

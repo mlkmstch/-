@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace ToDolist1
 {
     public partial class MainWindow : Form
@@ -26,12 +28,26 @@ namespace ToDolist1
         public static int userID;
         public MainWindow()
         {
+
             Program.MN = this;
             InitializeComponent();
-            this.BackColor = Color.FromArgb(244, 251, 255);
-            panel1.BackColor = Color.FromArgb(205, 237, 255);
-            panel3.BackColor = Color.FromArgb(244, 251, 255);
-            
+            this.BackColor = Color.FromArgb(225, 244, 255);
+            panel1.BackColor = Color.FromArgb(176, 227, 255);
+            Form1.SetRoundedShape(button1, 10);
+            Form1.SetRoundedShape(button2, 10);
+            Form1.SetRoundedShape(panel10, 25);
+            Form1.SetRoundedShape(panel2, 25);
+            Form1.SetRoundedShape(panel3, 25);
+            Form1.SetRoundedShape(panel4, 25);
+            Form1.SetRoundedShape(panel5, 25);
+            Form1.SetRoundedShape(dataGridView1, 25);
+            monthCalendar1.BringToFront();
+            panel3.BackColor = Color.FromArgb(210, 227, 236);
+            panel4.BackColor = Color.FromArgb(210, 227, 236);
+            panel5.BackColor = Color.FromArgb(210, 227, 236);
+
+            comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox1.Height = 40;
         }
         
 
@@ -104,33 +120,7 @@ namespace ToDolist1
                 }
             }
         }
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-           
-            Graphics g = e.Graphics;
-
-            
-            using (GraphicsPath path = new GraphicsPath())
-            {
-                int cornerRadius = 20; 
-
-                
-                path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90); 
-                path.AddArc(panel3.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90); 
-                path.AddArc(panel3.Width - cornerRadius, panel3.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
-                path.AddArc(0, panel3.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90); 
-                path.CloseFigure();
-
-                
-                g.SmoothingMode = SmoothingMode.AntiAlias;
-                Color fillColor = Color.FromArgb(154, 206, 254);
-                using (SolidBrush brush = new SolidBrush(fillColor))
-                {
-                    
-                    g.FillPath(brush, path);
-                }
-            }
-        }
+        
         private void MainWindow_Activated(object sender, EventArgs e)
         {
             FillGridView();
@@ -157,6 +147,8 @@ namespace ToDolist1
         {
             AddWindow addwindow = new AddWindow(userID);
             addwindow.Show();
+
+
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -164,6 +156,17 @@ namespace ToDolist1
             this.Close();
         }
 
-       
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Search")
+            {
+                textBox1.Text = "";
+            }
+        }
     }
 }

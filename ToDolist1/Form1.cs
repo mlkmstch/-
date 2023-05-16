@@ -34,6 +34,7 @@ namespace ToDolist1
             SetRoundedShape(panel5, 25);
             SetRoundedShape(panel4, 25);
             SetRoundedShape(button2, 25);
+            SetRoundedShape(button1, 10);
             SetRoundedShape(panel2, 25);
             SetRoundedShape(panel3, 25);
             //SetRoundedShape(panel6, 25);
@@ -123,13 +124,6 @@ namespace ToDolist1
             create.Location = new Point(0, 50);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Program.MN.Close();
-            con.Close();
-        }
-
         private void textBox1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "Login")
@@ -144,6 +138,13 @@ namespace ToDolist1
             {
                 textBox2.Text = "";
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Program.MN.Close();
+            con.Close();
         }
     }
 }

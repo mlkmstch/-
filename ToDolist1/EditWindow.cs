@@ -17,6 +17,9 @@ namespace ToDolist1
         public EditWindow(int TaskID, int UserID)
         {
             InitializeComponent();
+            Form1.SetRoundedShape(trashButton, 10);
+            Form1.SetRoundedShape(panel2, 25);
+            Form1.SetRoundedShape(button1, 10);
             this.BackColor = Color.FromArgb(225, 244, 255);
             panel1.BackColor = Color.FromArgb(176, 227, 255);
 
@@ -48,16 +51,16 @@ namespace ToDolist1
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trashButton_Click(object sender, EventArgs e)
         {
             Task task = new Task();
             task.DeleteUserTask(this.UserID, this.TaskID);
             this.Close();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
