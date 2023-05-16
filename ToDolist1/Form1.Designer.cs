@@ -39,6 +39,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -167,11 +168,19 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(3, 50);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(372, 3);
+            this.panel6.TabIndex = 26;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 486);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
@@ -208,6 +217,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel6;
     }
 }
 

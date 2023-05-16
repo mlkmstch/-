@@ -53,7 +53,7 @@ namespace ToDolist1
 
         private void Create_Load(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=DESKTOP-FA33UUU;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=DESKTOP-DRCHV91;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
             con = new SqlConnection(connectionString);
             con.Open();
         }

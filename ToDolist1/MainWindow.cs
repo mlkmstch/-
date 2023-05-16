@@ -47,11 +47,15 @@ namespace ToDolist1
             Form1.SetRoundedShape(panel4, 25);
             Form1.SetRoundedShape(panel5, 25);
             Form1.SetRoundedShape(dataGridView1, 25);
+            Form1.SetRoundedShape(panel7, 25);
+            Form1.SetRoundedShape(panel8, 25);
             monthCalendar1.BringToFront();
             panel3.BackColor = Color.FromArgb(210, 227, 236);
             panel4.BackColor = Color.FromArgb(210, 227, 236);
             panel5.BackColor = Color.FromArgb(210, 227, 236);
-
+            panel7.BackColor = Color.FromArgb(210, 227, 236);
+            panel9.BackColor = Color.FromArgb(95, 160, 221);
+            panel6.BackColor = Color.FromArgb(57, 128, 194);
             comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
             comboBox1.Height = 40;
 
@@ -140,7 +144,7 @@ namespace ToDolist1
 
         private void Username_Paint(object sender, PaintEventArgs e)
         {
-            string connectionString = "Data Source=DESKTOP-FA33UUU;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=DESKTOP-DRCHV91;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
             con = new SqlConnection(connectionString);
             con.Open();
             cmd = new SqlCommand("select Name from Users where UserID='" + userID.ToString() + "'", con);
