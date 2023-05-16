@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskBand;
 
 namespace ToDolist1
 {
@@ -17,9 +18,12 @@ namespace ToDolist1
         {
             this.UserID = UserID;
             InitializeComponent();
-
+            Form1.SetRoundedShape(button3, 10);
+            Form1.SetRoundedShape(panel2, 25);
+            Form1.SetRoundedShape(button1, 10);
             this.BackColor = Color.FromArgb(225, 244, 255);
             panel1.BackColor = Color.FromArgb(176, 227, 255);
+            button3.BackColor = Color.FromArgb(175, 217, 255);
 
         }
 

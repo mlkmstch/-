@@ -118,19 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="9mSx5iix5UE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9mSx5iix5UE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="9056813_add_r_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9056813_add_r_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="8664801_calendar_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8664801_calendar_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="9057340_search_loading_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9057340_search_loading_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="9056823_close_r_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\9056823_close_r_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1864217_circle_cross_delete_remove_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1864217_circle_cross_delete_remove_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="9057340_search_loading_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\9057340_search_loading_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="9057363_trash_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9057363_trash_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="9056813_add_r_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\9056813_add_r_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="9mSx5iix5UE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\9mSx5iix5UE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1864217_circle_cross_delete_remove_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1864217_circle_cross_delete_remove_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

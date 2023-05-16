@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace ToDolist1
 {
     public partial class MainWindow : Form
@@ -26,44 +28,26 @@ namespace ToDolist1
         public static int userID;
         public MainWindow()
         {
+
             Program.MN = this;
             InitializeComponent();
-            SetRoundedShape(panel3,25);
-            SetRoundedShape(panel4, 10);
-            SetRoundedShape(panel5, 10);
-            SetRoundedShape(panel6, 10);
-            SetRoundedShape(panel7, 10);
-            SetRoundedShape(panel8, 10);
-            SetRoundedShape(panel9, 10);
-            SetRoundedShape(comboBox1, 10);
-            SetRoundedShape(panel2, 10);
-            SetRoundedShape(textBox1, 10);
-            SetRoundedShape(button1, 25);
-            SetRoundedShape(button2, 15);
-            SetRoundedShape(Completed, 25);
-            SetRoundedShape(Achievements, 25);
-            this.BackColor = Color.FromArgb(244, 251, 255);
-            panel1.BackColor = Color.FromArgb(205, 237, 255);
-            panel3.BackColor = Color.FromArgb(154, 206, 254);
-            panel4.BackColor = Color.FromArgb(154, 206, 254);
-            panel5.BackColor = Color.FromArgb(154, 206, 254);
-            panel6.BackColor = Color.FromArgb(244, 251, 255);
-            panel7.BackColor = Color.FromArgb(244, 251, 255);
-            panel8.BackColor = Color.FromArgb(154, 206, 254);
-            panel9.BackColor = Color.FromArgb(244, 251, 255);
-        }
-        public static void SetRoundedShape(Control control, int radius)
-        {
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddLine(radius, 0, control.Width - radius, 0);
-            path.AddArc(control.Width - radius, 0, radius, radius, 270, 90);
-            path.AddLine(control.Width, radius, control.Width, control.Height - radius);
-            path.AddArc(control.Width - radius, control.Height - radius, radius, radius, 0, 90);
-            path.AddLine(control.Width - radius, control.Height, radius, control.Height);
-            path.AddArc(0, control.Height - radius, radius, radius, 90, 90);
-            path.AddLine(0, control.Height - radius, 0, radius);
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            control.Region = new Region(path);
+            this.BackColor = Color.FromArgb(225, 244, 255);
+            panel1.BackColor = Color.FromArgb(176, 227, 255);
+            Form1.SetRoundedShape(button1, 10);
+            Form1.SetRoundedShape(button2, 10);
+            Form1.SetRoundedShape(panel10, 25);
+            Form1.SetRoundedShape(panel2, 25);
+            Form1.SetRoundedShape(panel3, 25);
+            Form1.SetRoundedShape(panel4, 25);
+            Form1.SetRoundedShape(panel5, 25);
+            Form1.SetRoundedShape(dataGridView1, 25);
+            monthCalendar1.BringToFront();
+            panel3.BackColor = Color.FromArgb(210, 227, 236);
+            panel4.BackColor = Color.FromArgb(210, 227, 236);
+            panel5.BackColor = Color.FromArgb(210, 227, 236);
+
+            comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox1.Height = 40;
         }
         
 
@@ -95,18 +79,51 @@ namespace ToDolist1
 
             dataGridView1.DataSource = tasks;
         }
-        private void panel_Paint(object sender, PaintEventArgs e)
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+        private void panels1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                int cornerRadius = 10; 
+                
+                
+
+                
+                g.SmoothingMode = SmoothingMode.AntiAlias;
                 Color fillColor = Color.FromArgb(154, 206, 254);
                 using (SolidBrush brush = new SolidBrush(fillColor))
                 {
-                    
+                   
                     g.FillPath(brush, path);
                 }
             }
         }
+        private void panels2_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                int cornerRadius = 10; 
+               
+
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                Color fillColor = Color.FromArgb(244, 251, 255);
+                using (SolidBrush brush = new SolidBrush(fillColor))
+                {
+                    g.FillPath(brush, path);
+                }
+            }
+        }
+        
         private void MainWindow_Activated(object sender, EventArgs e)
         {
             FillGridView();
@@ -143,11 +160,26 @@ namespace ToDolist1
         }
             AddWindow addwindow = new AddWindow(userID);
             addwindow.Show();
+
+
         }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Search")
+            {
+                textBox1.Text = "";
+            }
         }
     }
 }
