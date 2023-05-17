@@ -43,6 +43,7 @@ namespace ToDolist1
             panel2.BackColor = Color.FromArgb(210, 227, 236);
             panel5.BackColor = Color.FromArgb(210, 227, 236);
             panel6.BackColor = Color.FromArgb(210, 227, 236);
+            panel7.BackColor = Color.FromArgb(95, 160, 221);
 
             button2.BackColor = Color.FromArgb(175, 217, 255);
             button2.ForeColor = Color.FromArgb(15, 128, 232);
@@ -53,7 +54,7 @@ namespace ToDolist1
 
         private void Create_Load(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=DESKTOP-DRCHV91;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=" + System.Environment.MachineName +";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
             con = new SqlConnection(connectionString);
             con.Open();
         }

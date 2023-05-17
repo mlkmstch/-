@@ -33,6 +33,7 @@ namespace ToDolist1
             Form1.SetRoundedShape(button1, 10);
             this.BackColor = Color.FromArgb(225, 244, 255);
             panel1.BackColor = Color.FromArgb(176, 227, 255);
+            panel3.BackColor = Color.FromArgb(95, 160, 221);
 
             this.TaskID = TaskID;
             this.UserID = UserID;

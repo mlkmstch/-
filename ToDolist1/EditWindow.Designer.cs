@@ -37,6 +37,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.trashButton = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -137,11 +138,19 @@
             this.trashButton.UseVisualStyleBackColor = true;
             this.trashButton.Click += new System.EventHandler(this.trashButton_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(0, 54);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(387, 3);
+            this.panel3.TabIndex = 27;
+            // 
             // EditWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 506);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.trashButton);
@@ -172,5 +181,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel3;
     }
 }
