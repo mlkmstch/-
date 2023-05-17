@@ -12,6 +12,10 @@ using System.Drawing.Drawing2D;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Azure.Identity;
 using Microsoft.Data.SqlClient;
+using System.IO;
+using System.Drawing.Text;
+using System.Runtime.InteropServices.ComTypes;
+using System.Net.Http;
 
 namespace ToDolist1
 {
@@ -37,8 +41,9 @@ namespace ToDolist1
 
             Program.MN = this;
             InitializeComponent();
+
             this.BackColor = Color.FromArgb(225, 244, 255);
-            panel1.BackColor = Color.FromArgb(176, 227, 255);
+            
             Form1.SetRoundedShape(button1, 10);
             Form1.SetRoundedShape(button2, 10);
             Form1.SetRoundedShape(panel10, 25);
@@ -49,17 +54,20 @@ namespace ToDolist1
             Form1.SetRoundedShape(dataGridView1, 25);
             Form1.SetRoundedShape(panel7, 25);
             Form1.SetRoundedShape(panel8, 25);
+
             monthCalendar1.BringToFront();
+
+            panel1.BackColor = Color.FromArgb(176, 227, 255);
             panel3.BackColor = Color.FromArgb(210, 227, 236);
             panel4.BackColor = Color.FromArgb(210, 227, 236);
             panel5.BackColor = Color.FromArgb(210, 227, 236);
             panel7.BackColor = Color.FromArgb(210, 227, 236);
             panel9.BackColor = Color.FromArgb(95, 160, 221);
             panel6.BackColor = Color.FromArgb(57, 128, 194);
+
             comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
             comboBox1.Height = 40;
 
-            
         }
         
 
@@ -157,7 +165,7 @@ namespace ToDolist1
 
         private void Username_Paint(object sender, PaintEventArgs e)
         {
-            string connectionString = "Data Source=DESKTOP-DRCHV91;Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=" + System.Environment.MachineName +";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
             con = new SqlConnection(connectionString);
             con.Open();
             cmd = new SqlCommand("select Name from Users where UserID='" + userID.ToString() + "'", con);
@@ -171,19 +179,72 @@ namespace ToDolist1
 
         private void avatar_MouseClick(object sender, MouseEventArgs e)
         {
+            string connectionString = "Data Source=" + System.Environment.MachineName + ";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            con = new SqlConnection(connectionString);
+            con.Open();
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            // Установите фильтр для диалогового окна открытия файла, чтобы пользователь мог выбрать только изображения
-            openFileDialog.Filter = "Изображения (*.jpg;*.jpeg;*.png;*.bmp;*.jfif)|*.jpg;*.jpeg;*.png;*.bmp;*.jfif";
+          
+            openFileDialog.Filter = "Изображения (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Получите путь к выбранному файлу
                 string imagePath = openFileDialog.FileName;
-
-                // Загрузите изображение в PictureBox
-                avatar.Image = Image.FromFile(imagePath);
+                byte[] imageData;
+                using (System.IO.FileStream fs = new System.IO.FileStream(imagePath, FileMode.Open))
+                {
+                    imageData = new byte[fs.Length];
+                    fs.Read(imageData, 0, imageData.Length);
+                    fs.Close();
+                }
+                cmd = new SqlCommand("update Users set ProfilePicture='" + imageData + "' Where UserID='"+userID.ToString()+"'", con);
+                cmd.ExecuteNonQuery();
+                ProfilePic();
             }
+
         }
+
+        
+
+    private void ProfilePic()
+        {
+
+            string connectionString = "Data Source=" + System.Environment.MachineName +";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            con = new SqlConnection(connectionString);
+            con.Open();
+            cmd = new SqlCommand("select ProfilePicture from Users where UserID='" + userID.ToString() + "'", con);
+            dr = cmd.ExecuteReader();
+            object obj = dr["ProfilePicture"];
+            byte[] data = (byte[])obj;
+            if (data != null)
+            {
+                using (MemoryStream ms = new MemoryStream(data))
+                {
+                    avatar.Image = Image.FromStream(ms);
+                }
+            }
+            /*try
+            {
+                if (dr.Read())
+                {
+                    /*Byte[] byteArrayIn = Convert.ToByte((dr["Pfp"]));
+                    Console.WriteLine(byteArrayIn.ToString());
+                    using (var ms = new MemoryStream(byteArrayIn))
+                    {
+                        return Image.FromStream(ms);
+                    }
+                    byte[] data = (byte[])dr["Pfp"];
+                    using (MemoryStream ms = new MemoryStream(data))
+                    {
+                        return Image.FromStream(ms);
+                    }
+                }
+            }
+            catch (Exception) { Console.WriteLine("222222222"); }
+            con.Close();
+            return null;*/
+        }
+
+
     }
 }
