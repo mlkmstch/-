@@ -78,9 +78,10 @@ namespace ToDolist1
                     else
                     {
                         dr.Close();
-                        cmd = new SqlCommand("insert into Users values(@username,@password)", con);
+                        cmd = new SqlCommand("insert into Users values(@username,@password,@profilepicture)", con);
                         cmd.Parameters.AddWithValue("username", textBox5.Text);
                         cmd.Parameters.AddWithValue("password", textBox2.Text);
+                        cmd.Parameters.AddWithValue("profilepicture", "");
                         cmd.ExecuteNonQuery();
                         this.Hide();
                     }
