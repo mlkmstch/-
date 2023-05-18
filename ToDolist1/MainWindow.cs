@@ -106,9 +106,18 @@ namespace ToDolist1
             FillGridView(combostatus, search);
         }
         private void FillGridView(String combostatus, String search)
-        {
+        { 
             Task task = new Task();
             List<Task> tasks = task.getUserTasks(userID);
+            if (tasks.Count >= 5)
+            {
+                string connectionString = "Data Source=" + System.Environment.MachineName + ";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+                con = new SqlConnection(connectionString);
+                con.Open();
+                cmd = new SqlCommand("update Achievements set IsCompleted='1' from Achievements where UserID='" + userID.ToString() + "'", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
             List<Task> SortedTasks = new List<Task>();
             if (search != "")
             {
@@ -174,15 +183,17 @@ namespace ToDolist1
         {
 
         }
-
-        private void avatar_Click(object sender, EventArgs e)
+        private void Achievements_Click(object sender, EventArgs e)
+        {
+            Achievements achievements = new Achievements(userID);
+            achievements.Show();
+        }
+        private void addButton_Click(object sender, EventArgs e)
         {
 
         }
             AddWindow addwindow = new AddWindow(userID);
             addwindow.Show();
-
-
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -227,7 +238,6 @@ namespace ToDolist1
                 string imagePath = openFileDialog.FileName;
                 cmd = new SqlCommand("update Users set ProfilePicture='" + imagePath + "' Where UserID='" + userID.ToString() + "'", con);
                 cmd.ExecuteNonQuery();
-                con.Close();
                 avatar.Image = ProfilePic();
             }
 
@@ -244,8 +254,10 @@ namespace ToDolist1
             {   
                 String imagePath = dr[0].ToString();
                 dr.Close();
-                con.Close();
-                return Image.FromFile(imagePath);
+                if (imagePath != "")
+                {
+                    return Image.FromFile(imagePath);
+                }
             }
             return null;
         }
@@ -254,6 +266,8 @@ namespace ToDolist1
         {
             avatar.Image=ProfilePic();
         }
+
+        
 
         /*private void avatar_MouseClick(object sender, MouseEventArgs e)
         {

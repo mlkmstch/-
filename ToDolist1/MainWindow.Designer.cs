@@ -71,12 +71,13 @@
             this.Achievements.BackColor = System.Drawing.Color.White;
             this.Achievements.FlatAppearance.BorderSize = 0;
             this.Achievements.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Achievements.Location = new System.Drawing.Point(715, 138);
+            this.Achievements.Location = new System.Drawing.Point(919, 120);
             this.Achievements.Name = "Achievements";
             this.Achievements.Size = new System.Drawing.Size(139, 38);
             this.Achievements.TabIndex = 34;
             this.Achievements.Text = "Achievements";
             this.Achievements.UseVisualStyleBackColor = false;
+            this.Achievements.Click += new System.EventHandler(this.Achievements_Click);
             // 
             // comboBox1
             // 
@@ -241,7 +242,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(916, 316);
+            this.monthCalendar1.Location = new System.Drawing.Point(905, 293);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.ShowTodayCircle = false;
             this.monthCalendar1.TabIndex = 40;
@@ -252,9 +253,9 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackgroundImage = global::ToDolist1.Properties.Resources._8664801_calendar_icon;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(881, 68);
+            this.pictureBox1.Location = new System.Drawing.Point(878, 240);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(219, 191);
+            this.pictureBox1.Size = new System.Drawing.Size(219, 231);
             this.pictureBox1.TabIndex = 45;
             this.pictureBox1.TabStop = false;
             // 
@@ -331,7 +332,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 744);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.avatar);
             this.Controls.Add(this.Username);
             this.Controls.Add(this.panel8);
@@ -346,6 +346,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Achievements);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
