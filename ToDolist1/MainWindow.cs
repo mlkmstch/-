@@ -16,6 +16,7 @@ using System.IO;
 using System.Drawing.Text;
 using System.Runtime.InteropServices.ComTypes;
 using System.Net.Http;
+using System.Collections;
 
 namespace ToDolist1
 {
@@ -36,6 +37,9 @@ namespace ToDolist1
         SqlDataReader dr;
 
         public static int userID;
+
+        private static String combostatus = null;
+        private static String search = "";
         public MainWindow()
         {
 
@@ -43,7 +47,7 @@ namespace ToDolist1
             InitializeComponent();
 
             this.BackColor = Color.FromArgb(225, 244, 255);
-            
+
             Form1.SetRoundedShape(button1, 10);
             Form1.SetRoundedShape(button2, 10);
             Form1.SetRoundedShape(panel10, 25);
@@ -65,11 +69,11 @@ namespace ToDolist1
             panel9.BackColor = Color.FromArgb(95, 160, 221);
             panel6.BackColor = Color.FromArgb(57, 128, 194);
 
-            comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
             comboBox1.Height = 40;
 
+            
         }
-        
+
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -91,23 +95,59 @@ namespace ToDolist1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
-
-        private void FillGridView()
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            combostatus = comboBox1.SelectedItem.ToString();
+            FillGridView(combostatus, search);
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            search = textBox1.Text.Trim();
+            FillGridView(combostatus, search);
+        }
+        private void FillGridView(String combostatus, String search)
         {
             Task task = new Task();
             List<Task> tasks = task.getUserTasks(userID);
-
-            dataGridView1.DataSource = tasks;
+            List<Task> SortedTasks = new List<Task>();
+            if (search != "")
+            {
+                foreach (Task t in tasks)
+                {
+                    if (t.Title.Contains(search))
+                    {
+                        SortedTasks.Add(t);
+                    }
+                }
+            }
+            else { SortedTasks = tasks; }
+            switch (combostatus)
+            {
+                case "Name":
+                    SortedTasks = SortedTasks.OrderBy(o => o.Title).ToList();
+                    dataGridView1.DataSource = SortedTasks;
+                    break;
+                case "Deadline":
+                    SortedTasks = SortedTasks.OrderBy(o => o.Deadline).ToList();
+                    dataGridView1.DataSource = SortedTasks;
+                    break;
+                case null:
+                    dataGridView1.DataSource = SortedTasks;
+                    break;
+            }
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-        
+
         private void MainWindow_Activated(object sender, EventArgs e)
         {
-            FillGridView();
+            FillGridView(combostatus, search);
+            avatar.Image = ProfilePic();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -150,11 +190,6 @@ namespace ToDolist1
             this.Close();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "Search")
@@ -165,7 +200,7 @@ namespace ToDolist1
 
         private void Username_Paint(object sender, PaintEventArgs e)
         {
-            string connectionString = "Data Source=" + System.Environment.MachineName +";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = "Data Source=" + System.Environment.MachineName + ";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
             con = new SqlConnection(connectionString);
             con.Open();
             cmd = new SqlCommand("select Name from Users where UserID='" + userID.ToString() + "'", con);
@@ -184,7 +219,50 @@ namespace ToDolist1
             con.Open();
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-          
+
+            openFileDialog.Filter = "Изображения (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string imagePath = openFileDialog.FileName;
+                cmd = new SqlCommand("update Users set ProfilePicture='" + imagePath + "' Where UserID='" + userID.ToString() + "'", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                avatar.Image = ProfilePic();
+            }
+
+        }
+        private Image ProfilePic()
+        {
+
+            string connectionString = "Data Source=" + System.Environment.MachineName + ";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            con = new SqlConnection(connectionString);
+            con.Open();
+            cmd = new SqlCommand("select ProfilePicture from Users where UserID='" + userID.ToString() + "'", con);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {   
+                String imagePath = dr[0].ToString();
+                dr.Close();
+                con.Close();
+                return Image.FromFile(imagePath);
+            }
+            return null;
+        }
+
+        private void avatar_MouseHover(object sender, EventArgs e)
+        {
+            avatar.Image=ProfilePic();
+        }
+
+        /*private void avatar_MouseClick(object sender, MouseEventArgs e)
+        {
+            string connectionString = "Data Source=" + System.Environment.MachineName + ";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
+            con = new SqlConnection(connectionString);
+            con.Open();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+
             openFileDialog.Filter = "Изображения (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -204,9 +282,9 @@ namespace ToDolist1
 
         }
 
-        
 
-    private void ProfilePic()
+
+        private void ProfilePic()
         {
 
             string connectionString = "Data Source=" + System.Environment.MachineName +";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
@@ -214,16 +292,20 @@ namespace ToDolist1
             con.Open();
             cmd = new SqlCommand("select ProfilePicture from Users where UserID='" + userID.ToString() + "'", con);
             dr = cmd.ExecuteReader();
-            object obj = dr["ProfilePicture"];
-            byte[] data = (byte[])obj;
-            if (data != null)
+            if (dr.Read())
             {
-                using (MemoryStream ms = new MemoryStream(data))
+                object obj = dr["ProfilePicture"];
+
+                byte[] data = (byte[])obj;
+                if (data != null)
                 {
-                    avatar.Image = Image.FromStream(ms);
+                    using (MemoryStream ms = new MemoryStream(data))
+                    {
+                        avatar.Image = Image.FromStream(ms);
+                    }
                 }
             }
-            /*try
+            try
             {
                 if (dr.Read())
                 {
@@ -242,9 +324,8 @@ namespace ToDolist1
             }
             catch (Exception) { Console.WriteLine("222222222"); }
             con.Close();
-            return null;*/
-        }
-
+            return null;
+        }*/
 
     }
 }
