@@ -83,7 +83,9 @@ namespace ToDolist1
                         cmd.Parameters.AddWithValue("password", textBox2.Text);
                         cmd.Parameters.AddWithValue("profilepicture", "");
                         cmd.ExecuteNonQuery();
-                        /*cmd = new SqlCommand("select UserId from Users where Name='" + textBox5.Text + "'", con);
+                        con.Close();
+                        con.Open();
+                        cmd = new SqlCommand("select UserId from Users where Name='" + textBox5.Text + "'", con);
                         int userid=0;
                         dr = cmd.ExecuteReader();
                         if (dr.Read())
@@ -91,6 +93,8 @@ namespace ToDolist1
                             userid = Convert.ToInt32(dr["UserID"]);
                             dr.Close();
                         }
+                        con.Close();
+                        con.Open();
                         for (int i = 0; i < 6;i++) 
                         {
                             {
@@ -101,7 +105,7 @@ namespace ToDolist1
                                 cmd1.ExecuteNonQuery();
                             }
                             con.Close();
-                        }*/
+                        }
                         this.Hide();
                     }
                 }

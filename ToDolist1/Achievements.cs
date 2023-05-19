@@ -52,5 +52,10 @@ namespace ToDolist1
             ReleaseCapture();
             PostMessage(this.Handle, WM_SYSCOMMAND, DOMOVE, 0);
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
