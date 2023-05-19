@@ -88,7 +88,8 @@
             this.comboBox1.ItemHeight = 20;
             this.comboBox1.Items.AddRange(new object[] {
             "Name",
-            "Deadline"});
+            "Deadline",
+            "Complited"});
             this.comboBox1.Location = new System.Drawing.Point(3, 8);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(133, 28);

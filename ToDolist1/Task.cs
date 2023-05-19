@@ -39,10 +39,10 @@ namespace ToDolist1
                 task.Description = dr["TaskDescription"].ToString();
                 task.Deadline = dr["Deadline"].ToString();
 
-                if (dr["Completed"].ToString() == "NULL")
-                {
-                    task.IsCompleted = false;
-                }
+                if (dr["Completed"].ToString() == "1")
+                {task.IsCompleted = true;}
+                else
+                {task.IsCompleted= false;}
                 taskList.Add(task);
             }
             con.Close();
@@ -123,5 +123,24 @@ namespace ToDolist1
             cmd.ExecuteNonQuery();
             con.Close();
         }
+
+        public void UpdateTaskState(int UserID, int TaskID,bool state)
+        {
+            int buffer = 0;
+            if (state){buffer = 1;}
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand("UpdateTaskState", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@TaskID", TaskID));
+            cmd.Parameters.Add(new SqlParameter("@UserID", UserID));
+            cmd.Parameters.Add(new SqlParameter("@State", buffer));
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
     }
 }

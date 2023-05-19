@@ -90,7 +90,16 @@ namespace ToDolist1
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        {   
+            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn)
+            {
+                int taskID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+                Task task = new Task();
+                bool state = (bool)dataGridView1.CurrentRow.Cells[4].Value;
+                task.UpdateTaskState(userID, taskID, !state);
+                FillGridView(combostatus, search);
+            }
+            
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -137,6 +146,10 @@ namespace ToDolist1
                     SortedTasks = SortedTasks.OrderBy(o => o.Deadline).ToList();
                     dataGridView1.DataSource = SortedTasks;
                     break;
+                case "Complited":
+                    SortedTasks = SortedTasks.OrderBy(o => o.IsCompleted).ToList();
+                    dataGridView1.DataSource = SortedTasks;
+                    break;
                 case null:
                     dataGridView1.DataSource = SortedTasks;
                     break;
@@ -157,10 +170,14 @@ namespace ToDolist1
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int taskID = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            EditWindow editwindow = new EditWindow(taskID, userID);
-            editwindow.Show();
+        {   
+            if (!(dataGridView1.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn))
+            {
+                int taskID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+                EditWindow editwindow = new EditWindow(taskID, userID);
+                editwindow.Show();
+            }
+            
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -223,7 +240,7 @@ namespace ToDolist1
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string imagePath = openFileDialog.FileName;
-                cmd = new SqlCommand("update Users set ProfilePicture='" + imagePath + "' Where UserID='" + userID.ToString() + "'", con);
+                cmd = new SqlCommand("update Users set Profile_Picture='" + imagePath + "' Where UserID='" + userID.ToString() + "'", con);
                 cmd.ExecuteNonQuery();
                 avatar.Image = ProfilePic();
             }
@@ -235,7 +252,7 @@ namespace ToDolist1
             string connectionString = "Data Source=" + System.Environment.MachineName + ";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
             con = new SqlConnection(connectionString);
             con.Open();
-            cmd = new SqlCommand("select ProfilePicture from Users where UserID='" + userID.ToString() + "'", con);
+            cmd = new SqlCommand("select Profile_Picture from Users where UserID='" + userID.ToString() + "'", con);
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {   
