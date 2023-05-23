@@ -13,7 +13,7 @@ namespace ToDolist1
         public string Title { get; set; }
         public string Description { get; set; }
         public string Deadline { get; set; }
-        public bool IsCompleted { get; set; }
+        public bool Completed { get; set; }
 
         private string ConnectionString = "Data Source=" + System.Environment.MachineName +";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
         public List<Task> getUserTasks(int UserID)
@@ -40,9 +40,9 @@ namespace ToDolist1
                 task.Deadline = dr["Deadline"].ToString();
 
                 if (dr["Completed"].ToString() == "1")
-                {task.IsCompleted = true;}
+                {task.Completed = true;}
                 else
-                {task.IsCompleted= false;}
+                {task.Completed = false;}
                 taskList.Add(task);
             }
             con.Close();
@@ -60,7 +60,7 @@ namespace ToDolist1
             cmd.Parameters.Add(new SqlParameter("@Title", task.Title));
             cmd.Parameters.Add(new SqlParameter("@Description", task.Description));
             cmd.Parameters.Add(new SqlParameter("@Deadline", Convert.ToDateTime(task.Deadline)));
-            
+            cmd.Parameters.Add(new SqlParameter("@IsCompleted", task.Completed));
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -87,7 +87,7 @@ namespace ToDolist1
                 task.Deadline = dr["Deadline"].ToString();
                 if (dr["Completed"].ToString() == "NULL")
                 {
-                    task.IsCompleted = false;
+                    task.Completed = false;
                 }
             }
             con.Close();

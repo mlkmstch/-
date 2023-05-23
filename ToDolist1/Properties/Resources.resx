@@ -130,6 +130,9 @@
   <data name="9057340_search_loading_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\9057340_search_loading_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1864217_circle_cross_delete_remove_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1864217_circle_cross_delete_remove_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="9056823_close_r_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\9056823_close_r_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,7 +142,7 @@
   <data name="9057363_trash_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\9057363_trash_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1864217_circle_cross_delete_remove_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1864217_circle_cross_delete_remove_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="97236fa3af8ced626766643e35f9072a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\97236fa3af8ced626766643e35f9072a.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

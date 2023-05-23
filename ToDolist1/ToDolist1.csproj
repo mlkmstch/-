@@ -222,11 +222,11 @@
     <Compile Include="AddWindow.Designer.cs">
       <DependentUpon>AddWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Achievements.cs">
+    <Compile Include="History.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Achievements.Designer.cs">
-      <DependentUpon>Achievements.cs</DependentUpon>
+    <Compile Include="History.Designer.cs">
+      <DependentUpon>History.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -240,8 +240,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Task.cs" />
-    <EmbeddedResource Include="Achievements.resx">
-      <DependentUpon>Achievements.cs</DependentUpon>
+    <EmbeddedResource Include="History.resx">
+      <DependentUpon>History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddWindow.resx">
       <DependentUpon>AddWindow.cs</DependentUpon>
@@ -312,6 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1864217_circle_cross_delete_remove_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\97236fa3af8ced626766643e35f9072a.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />

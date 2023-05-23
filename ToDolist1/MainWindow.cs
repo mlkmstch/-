@@ -50,12 +50,12 @@ namespace ToDolist1
 
             Form1.SetRoundedShape(button1, 10);
             Form1.SetRoundedShape(button2, 10);
+            Form1.SetRoundedShape(Achievements, 25);
             Form1.SetRoundedShape(panel10, 25);
             Form1.SetRoundedShape(panel2, 25);
             Form1.SetRoundedShape(panel3, 25);
             Form1.SetRoundedShape(panel4, 25);
             Form1.SetRoundedShape(panel5, 25);
-            Form1.SetRoundedShape(dataGridView1, 25);
             Form1.SetRoundedShape(panel7, 25);
             Form1.SetRoundedShape(panel8, 25);
 
@@ -115,27 +115,21 @@ namespace ToDolist1
         { 
             Task task = new Task();
             List<Task> tasks = task.getUserTasks(userID);
-            if (tasks.Count >= 5)
-            {
-                string connectionString = "Data Source=" + System.Environment.MachineName + ";Initial Catalog=ToDoAppDatabase;Integrated Security=True;TrustServerCertificate=True";
-                con = new SqlConnection(connectionString);
-                con.Open();
-                cmd = new SqlCommand("update Achievements set IsCompleted='1' from Achievements where UserID='" + userID.ToString() + "'", con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
             List<Task> SortedTasks = new List<Task>();
-            if (search != "")
+            foreach (Task t in tasks)
             {
-                foreach (Task t in tasks)
+                if (search != "")
                 {
-                    if (t.Title.Contains(search))
+                    if (t.Title.Contains(search) && t.Completed ==false)
                     {
                         SortedTasks.Add(t);
                     }
                 }
+                else if(t.Completed ==false)
+                {
+                    SortedTasks.Add(t);
+                }
             }
-            else { SortedTasks = tasks; }
             switch (combostatus)
             {
                 case "Name":
@@ -146,16 +140,17 @@ namespace ToDolist1
                     SortedTasks = SortedTasks.OrderBy(o => o.Deadline).ToList();
                     dataGridView1.DataSource = SortedTasks;
                     break;
-                case "Complited":
-                    SortedTasks = SortedTasks.OrderBy(o => o.IsCompleted).ToList();
-                    dataGridView1.DataSource = SortedTasks;
-                    break;
                 case null:
                     dataGridView1.DataSource = SortedTasks;
                     break;
             }
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToOrderColumns = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -191,7 +186,7 @@ namespace ToDolist1
         }
         private void Achievements_Click(object sender, EventArgs e)
         {
-            Achievements achievements = new Achievements(userID);
+            History achievements = new History(userID);
             achievements.Show();
         }
         private void addButton_Click(object sender, EventArgs e)
