@@ -84,28 +84,6 @@ namespace ToDolist1
                         cmd.Parameters.AddWithValue("profilepicture", "");
                         cmd.ExecuteNonQuery();
                         con.Close();
-                        con.Open();
-                        cmd = new SqlCommand("select UserId from Users where Name='" + textBox5.Text + "'", con);
-                        int userid=0;
-                        dr = cmd.ExecuteReader();
-                        if (dr.Read())
-                        {
-                            userid = Convert.ToInt32(dr["UserID"]);
-                            dr.Close();
-                        }
-                        con.Close();
-                        con.Open();
-                        for (int i = 0; i < 6;i++) 
-                        {
-                            {
-                                SqlCommand cmd1 = new SqlCommand("insert into Achievements values(@userid,@achievid,@state)", con);
-                                cmd1.Parameters.AddWithValue("@userid", userid);
-                                cmd1.Parameters.AddWithValue("@achievid", i);
-                                cmd1.Parameters.AddWithValue("@state", 0);
-                                cmd1.ExecuteNonQuery();
-                            }
-                            con.Close();
-                        }
                         this.Hide();
                     }
                 }

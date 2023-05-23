@@ -133,6 +133,16 @@ namespace ToDolist1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _97236fa3af8ced626766643e35f9072a {
+            get {
+                object obj = ResourceManager.GetObject("97236fa3af8ced626766643e35f9072a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _9mSx5iix5UE {
             get {
                 object obj = ResourceManager.GetObject("9mSx5iix5UE", resourceCulture);
