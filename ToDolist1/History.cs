@@ -71,7 +71,7 @@ namespace ToDolist1
                 }
             }
             SortedTasks = SortedTasks.OrderBy(o => o.Deadline).ToList();
-            label2.Text="Amount of completed: "+SortedTasks.Count.ToString();
+            label2.Text="Amount of completed: "+SortedTasks.Count.ToString(); //
             dataGridView1.DataSource = SortedTasks;
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
